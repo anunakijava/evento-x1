@@ -1,467 +1,519 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscrição - X1 Sky Blue</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    @keyframes gentle-pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.02); opacity: 0.95; }
-    }
-    @keyframes soft-glow {
-      0%, 100% { box-shadow: 0 0 8px rgba(0, 191, 255, 0.3); }
-      50% { box-shadow: 0 0 12px rgba(0, 191, 255, 0.5); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes particle-move {
-      0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-      100% { transform: translate(var(--tx), var(--ty)) rotate(360deg); opacity: 0; }
-    }
-    @keyframes titleGlow {
-      0%, 100% { text-shadow: 0 0 10px rgba(0, 191, 255, 0.5); }
-      50% { text-shadow: 0 0 20px rgba(0, 191, 255, 0.8); }
-    }
-    
-    .title-animation {
-      animation: titleGlow 3s ease-in-out infinite;
-    }
-    .gentle-pulse {
-      animation: gentle-pulse 3s ease-in-out infinite;
-    }
-    .smooth-border {
-      border: 2px solid rgba(0, 191, 255, 0.5);
-      transition: all 0.3s ease;
-    }
-    .smooth-border:hover {
-      border-color: rgba(0, 191, 255, 0.8);
-      box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
-    }
-    .gradient-button {
-      background: linear-gradient(135deg, #00BFFF, #0073e6);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .gradient-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 8px rgba(0, 191, 255, 0.4);
-      background: linear-gradient(135deg, #0073e6, #00BFFF);
-    }
-    .fade-in {
-      animation: fadeIn 0.6s ease-out;
-    }
-    .particle {
-      position: absolute;
-      background: radial-gradient(circle, rgba(0, 191, 255, 0.5), transparent);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: particle-move 4s linear forwards;
-    }
-    .input-focus-effect {
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 191, 255, 0.3);
-    }
-    .input-focus-effect:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 191, 255, 0.2);
-      border-color: rgba(0, 191, 255, 0.6);
-    }
-    .file-input-label {
-      transition: all 0.3s ease;
-      border: 2px dashed rgba(0, 191, 255, 0.5);
-    }
-    .file-input-label:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 191, 255, 0.15);
-      border-color: rgba(0, 191, 255, 0.8);
-    }
-    .interactive-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      transition: background 0.5s ease;
-    }
-    .smooth-scroll {
-      scroll-behavior: smooth;
-    }
-    .text-gradient {
-      background: linear-gradient(90deg, #00BFFF, #0073e6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .panel-glow {
-      position: relative;
-      overflow: hidden;
-    }
-    .panel-glow::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #00BFFF, #0073e6, #00BFFF);
-      background-size: 200% 200%;
-      z-index: -1;
-      animation: borderGlow 4s linear infinite;
-      opacity: 0.7;
-      border-radius: 12px;
-    }
-    @keyframes borderGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUNAKI - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://media.discordapp.net/attachments/1335209711842361360/1391114431227887850/701dc0f93f8f3b9b538381dd338c1eb2.jpg?ex=686ab7c6&is=68696646&hm=dcbde81d3136e6616f066f8af6e7c970227b8c2e06b3d108a1142667dee4aff1&=&format=webp&width=810&height=810');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.8) 50%, rgba(15, 52, 96, 0.85) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Efeito de partículas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.9);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container principal */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Header com foto e nome */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://media.discordapp.net/attachments/1335209711842361360/1391114431227887850/701dc0f93f8f3b9b538381dd338c1eb2.jpg?ex=686ab7c6&is=68696646&hm=dcbde81d3136e6616f066f8af6e7c970227b8c2e06b3d108a1142667dee4aff1&=&format=webp&width=810&height=810');
+            background-size: cover;
+            background-position: center;
+            border-radius: 25px;
+            border: 4px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.3);
+            animation: neonPulse 3s ease-in-out infinite alternate;
+            margin: 0 auto 30px;
+        }
+
+        .profile-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+            animation: textGlow 3s ease-in-out infinite alternate;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            color: #cccccc;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 40px;
+        }
+
+        @keyframes neonPulse {
+            0% { 
+                border-color: #00ffff;
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.3);
+            }
+            100% { 
+                border-color: #ff00ff;
+                box-shadow: 0 0 40px rgba(255, 0, 255, 0.8), 0 0 80px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.3);
+            }
+        }
+
+        @keyframes textGlow {
+            0% { 
+                text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+            }
+            100% { 
+                text-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 50px rgba(255, 0, 255, 0.6);
+            }
+        }
+
+        /* Seção social */
+        .social-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-title {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { 
+                text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+            }
+            to { 
+                text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.8);
+            }
+        }
+
+        .social-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            margin-bottom: 60px;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            border-radius: 25px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .social-card:hover::before {
+            animation: shine 0.8s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #00ffff;
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.4);
+        }
+
+        .social-card:nth-child(1) { animation-delay: 0.1s; }
+        .social-card:nth-child(2) { animation-delay: 0.2s; }
+        .social-card:nth-child(3) { animation-delay: 0.3s; }
+        .social-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover .social-logo {
+            transform: scale(1.1);
+            border-color: #ff00ff;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+        }
+
+        .social-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4ecdc4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .social-desc {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .social-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            margin: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-btn:hover::before {
+            left: 100%;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(45deg, #45b7d1, #96ceb4);
+        }
+
+        .livepix-btn {
+            background: linear-gradient(45deg, #00ff00, #32cd32);
+        }
+
+        .livepix-btn:hover {
+            background: linear-gradient(45deg, #32cd32, #00ff00);
+            box-shadow: 0 8px 20px rgba(0, 255, 0, 0.4);
+        }
+
+        /* Seção de contato */
+        .contact-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-info {
+            font-size: 1.3em;
+            color: #cccccc;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 20px 15px;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .profile-name {
+                font-size: 2.5em;
+            }
+            
+            .social-title {
+                font-size: 2.2em;
+            }
+            
+            .social-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .social-card {
+                max-width: 300px;
+            }
+            
+            .contact-title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile-name {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+            }
+            
+            .social-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-900 min-h-screen text-gray-100 font-sans overflow-x-hidden smooth-scroll">
-  <!-- Interactive background -->
-  <div class="interactive-bg"></div>
-  
-  <!-- Particles container -->
-  <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
-  
-  <div class="container mx-auto px-4 py-12 max-w-3xl relative z-10">
-    <!-- Header with animated title -->
-    <header class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-gradient mb-3 title-animation">
-        Inscrição X1 Sky Blue
-      </h1>
-      <p class="text-lg text-blue-300 opacity-90">
-        Preencha o formulário abaixo para participar do nosso evento
-      </p>
-    </header>
+<body>
+    <div class="particles" id="particles"></div>
 
-    <!-- Registration Form with glowing border -->
-    <form id="formulario" class="bg-gray-800 bg-opacity-80 backdrop-blur-sm rounded-xl p-8 mb-10 smooth-border panel-glow">
-      <div class="space-y-6">
-        <!-- Game Name -->
-        <div>
-          <label for="nomeJogo" class="block text-sm font-medium text-blue-300 mb-2">
-            <i class="fas fa-user mr-2"></i> Nome no jogo <span class="text-red-400">*</span>
-          </label>
-          <div class="relative">
-            <input type="text" id="nomeJogo" required 
-                   class="w-full bg-gray-700 rounded-lg pl-10 p-3 text-white focus:outline-none input-focus-effect" 
-                   placeholder="Seu nome no jogo">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <i class="fas fa-user text-blue-400"></i>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="profile-photo"></div>
+            <h1 class="profile-name">ANUNAKI</h1>
+            <p class="subtitle"></p>
+        </header>
+
+        <!-- Social Media -->
+        <section class="social-section">
+            <h2 class="social-title"></h2>
+            <div class="social-container">
+                <div class="social-card">
+                    <img src="https://cdn.discordapp.com/attachments/1335209711842361360/1368562219918295083/standard_1.gif?ex=686a6963&is=686917e3&hm=cd9b988eea79c8119a37e6e35151b79a2115b9a33859597e0e93dcf818a4a63f" alt="SKY" class="social-logo">
+                    <h3 class="social-name">SKY</h3>
+                    <p class="social-desc">🎮 Servidor Principal</p>
+                    <a href="https://discord.gg/Anw3MQyt5r" target="_blank" class="social-btn">
+                        💬 Entrar
+                    </a>
+                </div>
+                
+                <div class="social-card">
+                    <img src="https://media.discordapp.net/attachments/1335209711842361360/1391112784858579055/b090eed088a2c46ee1b7ebc3a77dc296.png?ex=686ab63d&is=686964bd&hm=da351fc1e26a5d1aa83c8e27beb999abfb010407295a551307408c20f1cdc047&=&format=webp&quality=lossless&width=563&height=563" alt="DELRIO" class="social-logo">
+                    <h3 class="social-name">DELRIO</h3>
+                    <p class="social-desc">🎯 Servidor da Delrio</p>
+                    <a href="https://discord.gg/7HUs5JCmjY" target="_blank" class="social-btn">
+                        💬 Entrar
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <img src="https://media.discordapp.net/attachments/1335209711842361360/1391112784858579055/b090eed088a2c46ee1b7ebc3a77dc296.png?ex=686ab63d&is=686964bd&hm=da351fc1e26a5d1aa83c8e27beb999abfb010407295a551307408c20f1cdc047&=&format=webp&quality=lossless&width=563&height=563" alt="STREAMER DELRIO" class="social-logo">
+                    <h3 class="social-name">STREAMER DELRIO</h3>
+                    <p class="social-desc">🎬 Vem ser Streamer</p>
+                    <a href="https://discord.gg/TwsmtTYgQs" target="_blank" class="social-btn">
+                        💬 Discord
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="LIVEPIX" class="social-logo">
+                    <h3 class="social-name">LIVEPIX</h3>
+                    <p class="social-desc">💰 Apoie nosso trabalho</p>
+                    <a href="https://livepix.gg/asula" target="_blank" class="livepix-btn">
+                        💰 Apoiar
+                    </a>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- Game ID -->
-        <div>
-          <label for="idJogo" class="block text-sm font-medium text-blue-300 mb-2">
-            <i class="fas fa-id-card mr-2"></i> ID do jogo <span class="text-red-400">*</span>
-          </label>
-          <div class="relative">
-            <input type="text" id="idJogo" required 
-                   class="w-full bg-gray-700 rounded-lg pl-10 p-3 text-white focus:outline-none input-focus-effect" 
-                   placeholder="Seu ID no jogo">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <i class="fas fa-id-card text-blue-400"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Discord Nick -->
-        <div>
-          <label for="nickDiscord" class="block text-sm font-medium text-blue-300 mb-2">
-            <i class="fab fa-discord mr-2"></i> Nick do Discord <span class="text-red-400">*</span>
-          </label>
-          <div class="relative">
-            <input type="text" id="nickDiscord" required 
-                   class="w-full bg-gray-700 rounded-lg pl-10 p-3 text-white focus:outline-none input-focus-effect" 
-                   placeholder="Seu nick no Discord">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <i class="fab fa-discord text-blue-400"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Discord ID -->
-        <div>
-          <label for="idDiscord" class="block text-sm font-medium text-blue-300 mb-2">
-            <i class="fas fa-hashtag mr-2"></i> ID do Discord <span class="text-red-400">*</span>
-          </label>
-          <div class="relative">
-            <input type="text" id="idDiscord" required 
-                   class="w-full bg-gray-700 rounded-lg pl-10 p-3 text-white focus:outline-none input-focus-effect" 
-                   placeholder="Seu ID no Discord">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <i class="fas fa-hashtag text-blue-400"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Game Profile Screenshot -->
-        <div>
-          <label for="printJogo" class="block text-sm font-medium text-blue-300 mb-2">
-            <i class="fas fa-image mr-2"></i> Print do perfil do jogo <span class="text-red-400">*</span>
-          </label>
-          <label for="printJogo" class="file-input-label flex flex-col items-center justify-center w-full h-32 rounded-lg cursor-pointer bg-gray-700 hover:bg-gray-600">
-            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-              <i class="fas fa-cloud-upload-alt text-2xl text-blue-400 mb-2"></i>
-              <p class="text-sm text-blue-300"><span class="font-medium">Clique para enviar</span> ou arraste o arquivo</p>
-              <p class="text-xs text-gray-400 mt-1">PNG, JPG ou GIF (MAX. 5MB)</p>
-            </div>
-            <input id="printJogo" type="file" accept="image/*" required class="hidden" />
-          </label>
-          <div id="printJogoPreview" class="mt-2 hidden">
-            <p class="text-sm text-green-400"><i class="fas fa-check-circle mr-1"></i> Arquivo selecionado</p>
-          </div>
-        </div>
-
-        <!-- Discord Profile Screenshot -->
-        <div>
-          <label for="printDiscord" class="block text-sm font-medium text-blue-300 mb-2">
-            <i class="fab fa-discord mr-2"></i> Print do perfil do Discord <span class="text-red-400">*</span>
-          </label>
-          <label for="printDiscord" class="file-input-label flex flex-col items-center justify-center w-full h-32 rounded-lg cursor-pointer bg-gray-700 hover:bg-gray-600">
-            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-              <i class="fas fa-cloud-upload-alt text-2xl text-blue-400 mb-2"></i>
-              <p class="text-sm text-blue-300"><span class="font-medium">Clique para enviar</span> ou arraste o arquivo</p>
-              <p class="text-xs text-gray-400 mt-1">PNG, JPG ou GIF (MAX. 5MB)</p>
-            </div>
-            <input id="printDiscord" type="file" accept="image/*" required class="hidden" />
-          </label>
-          <div id="printDiscordPreview" class="mt-2 hidden">
-            <p class="text-sm text-green-400"><i class="fas fa-check-circle mr-1"></i> Arquivo selecionado</p>
-          </div>
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" class="w-full gradient-button text-white font-bold py-3 px-4 rounded-lg mt-6 hover:shadow-lg transition-all duration-300">
-          <i class="fas fa-paper-plane mr-2"></i> Enviar inscrição
-        </button>
-      </div>
-    </form>
-
-    <!-- Success Message (Hidden by default) -->
-    <div id="successMessage" class="hidden text-center bg-gray-800 bg-opacity-80 backdrop-blur-sm rounded-xl p-8 mb-10 fade-in smooth-border">
-      <div class="mb-6">
-        <div class="inline-block bg-gradient-to-r from-blue-400 to-blue-600 p-4 rounded-full">
-          <i class="fas fa-check text-white text-3xl"></i>
-        </div>
-      </div>
-      <h2 class="text-2xl font-bold text-blue-300 mb-3">Inscrição realizada com sucesso! 🎉</h2>
-      <p class="text-blue-200 mb-4">Sua inscrição foi enviada e já está na nossa lista de participantes.</p>
-      <p class="text-gray-300 text-sm mb-6">Acompanhe as atualizações no nosso servidor do Discord.</p>
-      
-      <button id="newRegistrationBtn" class="gradient-button text-white font-medium py-2 px-6 rounded-lg hover:shadow-lg transition-all duration-300">
-        <i class="fas fa-plus mr-2"></i> Nova inscrição
-      </button>
+        <!-- Contact -->
+        <section class="contact-section">
+            <h2 class="contact-title</h2>
+            <p class="contact-info">
+                
+            </p>
+        </section>
     </div>
-  </div>
 
-  <script>
-    // Webhook URL (replace with your actual Discord webhook URL)
-    const webhookURL = "https://discordapp.com/api/webhooks/1369286063163441243/2bRRYmwMygK1y1BSIomtgoZtRs6ajZmZz3waVbhbvUZfP0BK-oW7166nty2dEyUG-N0X";
-    
-    // Create beautiful particles
-    function createParticles() {
-      const container = document.getElementById('particles-container');
-      const particleCount = 15;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random size between 3px and 10px
-        const size = Math.random() * 7 + 3;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        // Random starting position
-        const startX = Math.random() * window.innerWidth;
-        const startY = Math.random() * window.innerHeight;
-        particle.style.left = `${startX}px`;
-        particle.style.top = `${startY}px`;
-        
-        // Random movement
-        const angle = Math.random() * Math.PI * 2;
-        const distance = Math.random() * 150 + 80;
-        const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
-        
-        particle.style.setProperty('--tx', `${tx}px`);
-        particle.style.setProperty('--ty', `${ty}px`);
-        
-        // Random opacity
-        particle.style.opacity = Math.random() * 0.4 + 0.2;
-        
-        // Random blue color variation
-        const blueHue = Math.random() * 40 + 190;
-        particle.style.background = `radial-gradient(circle, hsla(${blueHue}, 100%, 70%, 0.5), transparent)`;
-        
-        container.appendChild(particle);
-        
-        // Remove particle after animation completes
-        setTimeout(() => {
-          particle.remove();
-        }, 4000);
-      }
-    }
+    <script>
+        // Criar partículas
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const particleCount = 80;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                
+                // Cores variadas mais vibrantes
+                const colors = [
+                    'rgba(0, 255, 255, 0.9)',
+                    'rgba(255, 0, 255, 0.9)',
+                    'rgba(255, 255, 0, 0.8)',
+                    'rgba(0, 255, 0, 0.8)',
+                    'rgba(255, 255, 255, 0.7)',
+                    'rgba(255, 100, 255, 0.8)'
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particles.appendChild(particle);
+            }
+        }
 
-    // Run particles periodically
-    setInterval(createParticles, 500);
-    
-    // File input preview handlers
-    document.getElementById('printJogo').addEventListener('change', function(e) {
-      if (this.files.length > 0) {
-        document.getElementById('printJogoPreview').classList.remove('hidden');
-      }
-    });
-
-    document.getElementById('printDiscord').addEventListener('change', function(e) {
-      if (this.files.length > 0) {
-        document.getElementById('printDiscordPreview').classList.remove('hidden');
-      }
-    });
-
-    // Form submission handler
-    document.getElementById("formulario").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      
-      // Get form values
-      const nomeJogo = document.getElementById("nomeJogo").value;
-      const idJogo = document.getElementById("idJogo").value;
-      const nickDiscord = document.getElementById("nickDiscord").value;
-      const idDiscord = document.getElementById("idDiscord").value;
-      const printJogo = document.getElementById("printJogo").files[0];
-      const printDiscord = document.getElementById("printDiscord").files[0];
-
-      // Validate files
-      if (!printJogo || !printDiscord) {
-        showError("Por favor, envie ambos os prints obrigatórios.");
-        return;
-      }
-
-      // Show loading state
-      const submitBtn = document.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
-      submitBtn.disabled = true;
-
-      // Create form data
-      const formData = new FormData();
-      formData.append("file1", printJogo);
-      formData.append("file2", printDiscord);
-
-      // Create Discord message payload
-      const payload = {
-        content: `📥 **Nova inscrição X1 - Sky Blue**\n\n🎮 **Nome no jogo:** ${nomeJogo}\n🆔 **ID do jogo:** ${idJogo}\n💬 **Nick do Discord:** ${nickDiscord}\n🔢 **ID do Discord:** ${idDiscord}\n\n✅ **Inscrição registrada na lista!**`,
-      };
-      formData.append("payload_json", JSON.stringify(payload));
-
-      try {
-        // Send to Discord webhook
-        const response = await fetch(webhookURL, {
-          method: "POST",
-          body: formData
+        // Efeito de movimento do mouse
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.social-card');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            cards.forEach((card, index) => {
+                const speed = (index + 1) * 0.2;
+                const xMove = (x - 0.5) * speed;
+                const yMove = (y - 0.5) * speed;
+                
+                card.style.transform += ` translate(${xMove}px, ${yMove}px)`;
+            });
         });
 
-        if (response.ok) {
-          // Show success message
-          document.getElementById("formulario").classList.add('hidden');
-          document.getElementById("successMessage").classList.remove('hidden');
-          
-          // Fire confetti
-          confetti({
-            particleCount: 150,
-            spread: 90,
-            origin: { y: 0.6 },
-            colors: ['#00BFFF', '#0073e6', '#ffffff']
-          });
-          
-          // Create extra particles for celebration
-          for (let i = 0; i < 50; i++) {
+        // Inicializar efeitos
+        window.addEventListener('load', () => {
             createParticles();
-          }
-        } else {
-          showError("Erro ao enviar inscrição. Por favor, tente novamente.");
-        }
-      } catch (error) {
-        showError("Erro de conexão com o servidor. Verifique sua internet e tente novamente.");
-      } finally {
-        // Reset button state
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-      }
-    });
+        });
 
-    // New registration button handler
-    document.getElementById("newRegistrationBtn").addEventListener("click", function() {
-      document.getElementById("formulario").reset();
-      document.getElementById("formulario").classList.remove('hidden');
-      document.getElementById("successMessage").classList.add('hidden');
-      document.getElementById("printJogoPreview").classList.add('hidden');
-      document.getElementById("printDiscordPreview").classList.add('hidden');
-      
-      // Scroll to form
-      document.getElementById("formulario").scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Show error message
-    function showError(message) {
-      const errorDiv = document.createElement('div');
-      errorDiv.className = 'fixed top-4 right-4 bg-red-500 text-white px-4 py-3 rounded-lg shadow-lg flex items-center z-50 fade-in';
-      errorDiv.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i> ${message}`;
-      document.body.appendChild(errorDiv);
-      
-      setTimeout(() => {
-        errorDiv.classList.add('opacity-0');
-        setTimeout(() => errorDiv.remove(), 500);
-      }, 3000);
-    }
-    
-    // Add interactive background effect
-    document.addEventListener('mousemove', (e) => {
-      const bg = document.querySelector('.interactive-bg');
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-      
-      bg.style.background = `
-        linear-gradient(
-          135deg, 
-          rgba(15, 23, 42, 0.9) 0%, 
-          rgba(30, 41, 59, ${0.8 + y * 0.2}) 100%
-        )
-      `;
-    });
-
-    // Add ripple effect to buttons
-    document.querySelectorAll('button').forEach(button => {
-      button.addEventListener('click', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const ripple = document.createElement('span');
-        ripple.className = 'ripple-effect';
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-      });
-    });
-  </script>
+        // Animação de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
